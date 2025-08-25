@@ -41,38 +41,38 @@ import org.openjdk.jmh.infra.Blackhole;
 //@BenchmarkMode(Mode.SingleShotTime)
 //@OutputTimeUnit(TimeUnit.NANOSECONDS)
 
-@State(Scope.Benchmark)
-@Warmup(iterations=3)
-@Measurement(iterations=8)
-@BenchmarkMode(Mode.Throughput)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
-public class StatementBench extends BenchBase
-{
-    @Benchmark
-    @CompilerControl(CompilerControl.Mode.INLINE)
-    public Statement cycleStatement(Blackhole bh, ConnectionState state) throws SQLException
-    {
-        Statement statement = state.connection.createStatement();
-        bh.consume(statement.execute("INSERT INTO test (column) VALUES (?)"));
-        statement.close();
-        return statement;
-    }
-
-    @State(Scope.Thread)
-    public static class ConnectionState
-    {
-        Connection connection;
-
-        @Setup(Level.Iteration)
-        public void setup() throws SQLException
-        {
-            connection = DS.getConnection();
-        }
-
-        @TearDown(Level.Iteration)
-        public void teardown() throws SQLException
-        {
-            connection.close();
-        }
-    }
-}
+//@State(Scope.Benchmark)
+//@Warmup(iterations=3)
+//@Measurement(iterations=8)
+//@BenchmarkMode(Mode.Throughput)
+//@OutputTimeUnit(TimeUnit.MILLISECONDS)
+//public class StatementBench extends BenchBase
+//{
+//    @Benchmark
+//    @CompilerControl(CompilerControl.Mode.INLINE)
+//    public Statement cycleStatement(Blackhole bh, ConnectionState state) throws SQLException
+//    {
+//        Statement statement = state.connection.createStatement();
+//        bh.consume(statement.execute("INSERT INTO test (column) VALUES (?)"));
+//        statement.close();
+//        return statement;
+//    }
+//
+//    @State(Scope.Thread)
+//    public static class ConnectionState
+//    {
+//        Connection connection;
+//
+//        @Setup(Level.Iteration)
+//        public void setup() throws SQLException
+//        {
+//            connection = DS.getConnection();
+//        }
+//
+//        @TearDown(Level.Iteration)
+//        public void teardown() throws SQLException
+//        {
+//            connection.close();
+//        }
+//    }
+//}

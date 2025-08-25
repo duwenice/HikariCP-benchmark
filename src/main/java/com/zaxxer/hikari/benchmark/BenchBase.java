@@ -181,19 +181,19 @@ public class BenchBase
     {
         DruidDataSource druid = new DruidDataSource();
 
-        druid.setInitialSize(MIN_POOL_SIZE);
+//        druid.setInitialSize(MIN_POOL_SIZE);
         druid.setMaxActive(maxPoolSize);
-        druid.setMinIdle(MIN_POOL_SIZE);
-        druid.setPoolPreparedStatements(true);
+//        druid.setMinIdle(MIN_POOL_SIZE);
+//        druid.setPoolPreparedStatements(true);
         druid.setDriverClassName("com.zaxxer.hikari.benchmark.stubs.StubDriver");
         druid.setUrl(jdbcUrl);
         druid.setUsername("brettw");
         druid.setPassword("");
-        druid.setValidationQuery("SELECT 1");
-        druid.setTestOnBorrow(true);
-        druid.setDefaultAutoCommit(false);
-        druid.setMaxWait(8000);
-        druid.setUseUnfairLock(true);
+//        druid.setValidationQuery("SELECT 1");
+//        druid.setTestOnBorrow(true);
+//        druid.setDefaultAutoCommit(false);
+//        druid.setMaxWait(8000);
+//        druid.setUseUnfairLock(true);
 
         return druid;
     }
@@ -281,10 +281,10 @@ public class BenchBase
         config.setJdbcUrl(jdbcUrl);
         config.setUsername("brettw");
         config.setPassword("");
-        config.setMinimumIdle(MIN_POOL_SIZE);
+//        config.setMinimumIdle(MIN_POOL_SIZE);
         config.setMaximumPoolSize(maxPoolSize);
-        config.setConnectionTimeout(8000);
-        config.setAutoCommit(false);
+//        config.setConnectionTimeout(8000);
+//        config.setAutoCommit(false);
 
         DS = new HikariDataSource(config);
     }
